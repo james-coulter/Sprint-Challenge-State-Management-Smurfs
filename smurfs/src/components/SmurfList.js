@@ -1,20 +1,26 @@
 import React, { useContext } from 'react';
 import SmurfsContext from '../contexts/SmurfsContext.js';
 
+import './App.css';
+
+
 
 
 const SmurfList = () => {
-    const { smurfs } = useContext(SmurfsContext)
+    const { smurfs, removeSmurf, getRequest } = useContext(SmurfsContext)
 
     return (
-        <div>
+        <div className='smurfCard'>
             {smurfs.map(item => (
-                <div key={item.id}>
+                <div className='smurfCardContent' key={item.id}>
 
-                    <h1>Hi, my name is {item.name}.</h1>
-                    <h2>I am {item.age} years old.</h2>
-                    <h2>I am a whopping {item.height} tall.</h2>
-
+                    <h1>Hi, my name is <span>{item.name}</span>.</h1>
+                    <h2>I am <span>{item.age}</span> years old.</h2>
+                    <h2>I am a whopping <span>{item.height}</span> tall.</h2>
+                    <button onClick={() => { 
+                        removeSmurf(item.id); 
+                        getRequest()
+                        }}>Remove</button>
                 </div>
             ))}
         </div>

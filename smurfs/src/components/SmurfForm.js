@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import SmurfsContext from '../contexts/SmurfsContext';
 
+import './App.css';
+
 const SmurfForm = () => {
 
     const [form, setForm] = useState({name:'', age: 0, height:''})
@@ -15,12 +17,14 @@ const SmurfForm = () => {
         e.preventDefault();
         postRequest(form)
         e.target.reset()
-        getRequest()
+        getRequest(form)
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleSubmit}>
+            <h1>Welcome to the Smurf Factory</h1>
             <h1>Create your own Smurf or Smurfette</h1>
+            <div className='inputs'>
             <label>
                 <input 
                 type='text' 
@@ -48,6 +52,7 @@ const SmurfForm = () => {
             <label>
                 <button type='submit'>Render</button>
             </label>
+            </div>
         </form>
     )
 
