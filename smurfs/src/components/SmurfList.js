@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import SmurfsContext from '../contexts/SmurfsContext.js';
 
-function SmurfList() {
+
+
+const SmurfList = () => {
     const { smurfs } = useContext(SmurfsContext)
 
     return (
