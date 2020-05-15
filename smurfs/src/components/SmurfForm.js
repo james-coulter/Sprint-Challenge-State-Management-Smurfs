@@ -16,8 +16,8 @@ const SmurfForm = () => {
     const handleSubmit = e => {
         e.preventDefault();
         postRequest(form)
+        getRequest()
         e.target.reset()
-        getRequest(form)
     }
 
     return (
